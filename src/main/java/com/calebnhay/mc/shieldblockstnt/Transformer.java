@@ -5,7 +5,7 @@ import org.objectweb.asm.ClassWriter;
 import net.minecraft.launchwrapper.IClassTransformer;
 
 public class Transformer implements IClassTransformer {
-	public static final String damageSourceClassName = "net.minecraft.util.DamageSource";
+	private static final String damageSourceClassName = "net.minecraft.util.DamageSource";
 
 	@Override
 	public byte[] transform(String name, String transformedName, byte[] basicClass) {
@@ -13,11 +13,9 @@ public class Transformer implements IClassTransformer {
 			return basicClass;
 		}
 
-		ClassReader reader = new ClassReader(basicClass);
 		ClassWriter writer = new ClassWriter(0);
-		DamageSourceClassAdapter adapter = new DamageSourceClassAdapter(writer);
 
-		reader.accept(adapter, 0);
+		new ClassReader(basicClass).accept(new DamageSourceClassAdapter(writer), 0);
 
 		return writer.toByteArray();
 	}

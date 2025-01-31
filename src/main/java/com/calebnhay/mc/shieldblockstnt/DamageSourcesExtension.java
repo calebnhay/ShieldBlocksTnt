@@ -7,18 +7,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.Explosion;
 
 public class DamageSourcesExtension {
+	static final String damageType = "explosion";
+
 	public static DamageSource causeExplosionDamage(@Nullable Explosion explosion) {
-		DamageSource damageSource;
+		EntityLivingBase placer = explosion != null ? explosion.getExplosivePlacedBy() : null;
 
-		if (explosion == null) {
-			damageSource = new DamageSource("explosion");
-		} else {
-			EntityLivingBase placer = explosion.getExplosivePlacedBy();
-
-			damageSource = placer != null ? new ExplosionEntityDamageSource(explosion, placer)
-					: new ExplosionDamageSource(explosion);
-		}
-
-		return damageSource.setDifficultyScaled().setExplosion();
+		return (placer != null ? new ExplosionEntityDamageSource(explosion, placer)
+				: new ExplosionDamageSource(explosion)).setDifficultyScaled().setExplosion();
 	}
 }

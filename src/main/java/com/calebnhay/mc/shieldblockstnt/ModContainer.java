@@ -13,9 +13,9 @@ public class ModContainer extends DummyModContainer {
 		ModMetadata metadata = this.getMetadata();
 
 		metadata.modId = "shieldblockstntcoremod";
-		metadata.name = "Shield Blocks TNT Core Mod";
+		metadata.name = "Shield Blocks TNT";
 		metadata.authorList.add("calebnhay");
-		metadata.description = "A small patch that makes TNT explosions blockable with a shield";
+		metadata.description = "Makes TNT explosions blockable with a shield";
 		metadata.version = "0.0.1";
 		metadata.url = "https://github.com/calebnhay/ShieldBlocksTnt";
 	}

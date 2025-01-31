@@ -9,7 +9,7 @@ public class ExplosionEntityDamageSource extends EntityDamageSource {
 	private final Explosion explosion;
 
 	public ExplosionEntityDamageSource(Explosion explosion, Entity source) {
-		super("explosion.player", source);
+		super(DamageSourcesExtension.damageType + ".player", source);
 
 		this.explosion = explosion;
 	}

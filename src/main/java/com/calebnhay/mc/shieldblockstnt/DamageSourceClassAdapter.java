@@ -21,7 +21,7 @@ public class DamageSourceClassAdapter extends ClassVisitor implements Opcodes {
 		return new CauseExplosionDamageMethod(visitor);
 	}
 
-	static class CauseExplosionDamageMethod extends MethodVisitor {
+	private static class CauseExplosionDamageMethod extends MethodVisitor {
 		private final MethodVisitor target;
 
 		public CauseExplosionDamageMethod(MethodVisitor mv) {
