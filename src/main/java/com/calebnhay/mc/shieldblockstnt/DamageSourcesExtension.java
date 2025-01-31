@@ -11,7 +11,7 @@ public class DamageSourcesExtension {
 		DamageSource damageSource;
 
 		if (explosion == null) {
-			damageSource = new DamageSource("explosion").setDifficultyScaled().setExplosion();
+			damageSource = new DamageSource("explosion");
 		} else {
 			EntityLivingBase placer = explosion.getExplosivePlacedBy();
 
