@@ -12,7 +12,7 @@ public class ModContainer extends DummyModContainer {
 
 		ModMetadata metadata = this.getMetadata();
 
-		metadata.modId = "shieldblockstntcoremod";
+		metadata.modId = "shieldblockstnt";
 		metadata.name = "Shield Blocks TNT";
 		metadata.authorList.add("calebnhay");
 		metadata.description = "Makes TNT explosions blockable with a shield";

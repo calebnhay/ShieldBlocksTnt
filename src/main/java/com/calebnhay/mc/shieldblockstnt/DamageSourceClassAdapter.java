@@ -5,6 +5,8 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
 public class DamageSourceClassAdapter extends ClassVisitor implements Opcodes {
+	private static final String casueExplosionDamageMethodDescriptor = "(Lnet/minecraft/world/Explosion;)Lnet/minecraft/util/DamageSource;";
+
 	public DamageSourceClassAdapter(ClassVisitor cv) {
 		super(ASM4, cv);
 	}
@@ -13,8 +15,8 @@ public class DamageSourceClassAdapter extends ClassVisitor implements Opcodes {
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		MethodVisitor visitor = super.visitMethod(access, name, desc, signature, exceptions);
 
-		if (!name.equals("causeExplosionDamage")
-				|| !desc.equals("(Lnet/minecraft/world/Explosion;)Lnet/minecraft/util/DamageSource;")) {
+		if ((!name.equals("causeExplosionDamage") && !name.equals("func_94539_a"))
+				|| !desc.equals(casueExplosionDamageMethodDescriptor)) {
 			return visitor;
 		}
 
@@ -35,8 +37,7 @@ public class DamageSourceClassAdapter extends ClassVisitor implements Opcodes {
 			target.visitCode();
 			target.visitVarInsn(ALOAD, 0);
 			target.visitMethodInsn(INVOKESTATIC, "com/calebnhay/mc/shieldblockstnt/DamageSourcesExtension",
-					"causeExplosionDamage", "(Lnet/minecraft/world/Explosion;)Lnet/minecraft/util/DamageSource;",
-					false);
+					"causeExplosionDamage", casueExplosionDamageMethodDescriptor, false);
 			target.visitInsn(ARETURN);
 			target.visitMaxs(1, 1);
 			target.visitEnd();

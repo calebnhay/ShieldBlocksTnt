@@ -4,7 +4,7 @@ import java.util.Map;
 
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
-@IFMLLoadingPlugin.Name("Shield Blocks TNT Core Mod")
+@IFMLLoadingPlugin.Name("Shield Blocks TNT Coremod")
 @IFMLLoadingPlugin.MCVersion("1.12.2")
 @IFMLLoadingPlugin.TransformerExclusions("com.calebnhay.mc.shieldblockstnt")
 @IFMLLoadingPlugin.SortingIndex(1500)
